@@ -1,0 +1,9 @@
+---
+  - hosts: master
+    roles:
+#      -  common
+#      - webserver
+      - yumrepo
+#      - dnsserver
+#      - mailserver     
+

@@ -1,0 +1,38 @@
+---
+  - name: Deploy BIND configuration file
+    become: yes
+    become_user: root
+    copy:
+      src: files/etc/named.conf
+      dest: /etc/named.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart bind
+
+  - name: Deploy Zone config for shrilab.com
+    become: yes
+    become_user: root
+    copy:
+      src: files/var/named/shrilab.com.zone
+      dest: /var/named/shrilab.com.zone
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - reload bind
+
+  - name: Deploy Zone config for 0.168.192.in-addr.arpa
+    become: yes
+    become_user: root
+    copy:
+      src: files/var/named/0.168.192.in-addr.arpa.zone
+      dest: /var/named/0.168.192.in-addr.arpa.zone
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - reload bind
+
+

@@ -1,0 +1,15 @@
+---
+  - name: restart bind
+    become: yes
+    become_user: root
+    service:
+      name: named
+      state: restarted
+
+  - name: reload bind
+    become: yes
+    become_user: root
+    service:
+      name: named
+      state: reloaded
+

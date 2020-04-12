@@ -1,0 +1,10 @@
+---
+  - name: Copy Logo
+    become: yes
+    become_user: root
+    copy:
+      src: files/usr/share/squirrelmail/images/shrilab_logo.png
+      dest: /usr/share/squirrelmail/images/shrilab_logo.png
+      owner: root
+      group: root
+      mode: 0644

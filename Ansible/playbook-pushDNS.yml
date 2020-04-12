@@ -1,0 +1,24 @@
+---
+  - hosts: dns
+    gather_facts: no
+    tasks:
+    - name: Push zone file for shrilab.com.zone
+      become: yes
+      become_user: root
+      copy:
+        src: dnsserver/files/var/named/shrilab.com.zone
+        dest: /var/named/shrilab.com.zone
+        owner: root
+        group: root
+        mode: 644
+      notify:
+        - reload named
+
+    handlers:
+      - name: reload named
+        become: yes
+        become_user: root
+        service:
+          name: named
+          state: reloaded
+

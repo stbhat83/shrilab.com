@@ -1,0 +1,30 @@
+---
+  - name: install HTTPD package
+    become: yes
+    become_user: root
+    yum:
+      name: httpd
+      state: present
+
+  - name: Copy HTTPD config
+    become: yes
+    become_user: root
+    copy:
+      src: files/etc/httpd/conf.d/configserver.conf
+      dest: /etc/httpd/conf.d/configserver.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart httpd
+
+  - name: Copy Config files
+    become: yes
+    become_user: root
+    copy:
+      src: files/var/www/html/config/
+      dest: /var/www/html/config/
+      owner: root
+      group: root
+      mode: 0644
+

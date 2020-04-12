@@ -1,0 +1,11 @@
+---
+  - name: Deploy Dovecot configuration
+    become: yes
+    become_user: root
+    copy: src={{ item.src }} dest={{ item.dest }} owner=root group=root mode=0644
+    with_items:
+       - { src: 'files/etc/dovecot/conf.d/10-mail.conf', dest: '/etc/dovecot/conf.d/10-mail.conf' }
+       - { src: 'files/etc/dovecot/conf.d/10-auth.conf', dest: '/etc/dovecot/conf.d/10-auth.conf' }
+       - { src: 'files/etc/dovecot/conf.d/10-master.conf', dest: '/etc/dovecot/conf.d/10-master.conf' }
+    notify:
+      - restart dovecot

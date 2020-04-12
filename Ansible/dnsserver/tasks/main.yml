@@ -1,0 +1,6 @@
+---
+  - name: Install Bind
+    import_tasks: install.yml
+
+  - name: Config file and zone
+    import_tasks: config.yml

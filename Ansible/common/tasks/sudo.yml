@@ -1,0 +1,10 @@
+---
+  - name: Copy SUDOERS file
+    become: yes
+    become_user: root
+    copy:
+      src: etc/sudoers
+      dest: /etc/sudoers
+      mode: 0660
+      owner: root
+      group: root

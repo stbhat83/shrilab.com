@@ -1,0 +1,7 @@
+authorized_keys=07703b9c89df9e143d62aad328c78e47
+CentOS-Base.repo=da6aa1ab8d670c1f0a510e86b2a074e6
+md5sum.txt=8fdb9e4185d37e30cc3518eed4e142ed
+resolv.conf=2a86d297a512b3c55c1efa3eb6c0bc1f
+sshd_config=9b3d04219c14f029ac606de14f59f03a
+startup.sh=9c123d95ef10108aaf35e05a1cbfbe67
+sudoers=b93e42386bd87ae50fb059917249d593

@@ -1,0 +1,16 @@
+[master]
+192.168.0.1
+
+[configserver]
+config.shrilab.com
+
+[mail]
+mail.shrilab.com
+
+[dns]
+ns1.shrilab.com
+
+[yumrepo]
+yumrepo.shrilab.com
+
+

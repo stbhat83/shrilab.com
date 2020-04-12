@@ -1,0 +1,45 @@
+---
+  - name: Copy main httpd.conf file
+    become: yes
+    become_user: root
+    copy:
+      src: files/etc/httpd/conf/httpd.conf
+      dest: /etc/httpd/conf/httpd.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart httpd
+
+  - name: Deploy ops.shrilab.com HTTPD config file
+    become: yes
+    become_user: root
+    copy:
+      src: files/etc/httpd/conf.d/ops.conf
+      dest: /etc/httpd/conf.d/ops.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart httpd
+
+  - name: Copy ops.shrilab.com content files
+    become: yes
+    become_user: root
+    copy:
+      src: files/var/www/html/index.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+    
+  - name: Copy Logo image
+    become: yes
+    become_user: root
+    copy:
+      src: files/var/www/html/images/shrilab_logo.png
+      dest: /var/www/html/images/shrilab_logo.png
+      owner: root
+      group: root
+      mode: 0644
+

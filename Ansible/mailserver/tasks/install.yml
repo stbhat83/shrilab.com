@@ -1,0 +1,33 @@
+---
+  - name: Install Required Packages (Postfix, Dovecot, Squirrelmail and HTTPD)
+    become: yes
+    become_user: root
+    yum:
+      name:
+        - postfix
+        - dovecot
+        - squirrelmail
+        - httpd
+      state: present
+
+  - name: Enable service (Postfix)
+    become: yes
+    become_user: root
+    service:
+      name: postfix
+      enabled: yes
+
+  - name: Enable service (Dovecot)
+    become: yes
+    become_user: root
+    service:
+      name: dovecot
+      enabled: yes
+
+  - name: Enable service (HTTPD)
+    become: yes
+    become_user: root
+    service:
+      name: httpd
+      enabled: yes
+

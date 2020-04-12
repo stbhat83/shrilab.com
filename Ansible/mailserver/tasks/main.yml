@@ -1,0 +1,18 @@
+---
+  - name: Install Devecot, Postficx, Squirrelmail and HTTPD
+    import_tasks: install.yml
+
+  - name: Configure Postfix
+    import_tasks: postfix.yml
+
+  - name: Configure Dovecot
+    import_tasks: dovecot.yml
+
+  - name: Configure Webmail
+    import_tasks: webmail.yml
+
+  - name: Add Mail users
+    import_tasks: adduser.yml
+
+  - name: Copy Logo
+    import_tasks: logo.yml

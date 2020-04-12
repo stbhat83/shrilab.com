@@ -1,0 +1,14 @@
+---
+  - name: Install httpd
+    become: yes
+    become_user: root
+    yum:
+      name: httpd
+      state: present
+
+  - name: enable HTTPD service
+    become: yes
+    become_user: root
+    service:
+      name: httpd
+      enabled: yes

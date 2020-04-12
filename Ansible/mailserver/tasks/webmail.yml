@@ -1,0 +1,12 @@
+---
+  - name: Deploy Webmail configuration
+    become: yes
+    become_user: root
+    copy:
+      src: files/etc/httpd/conf.d/mailserver.conf
+      dest: /etc/httpd/conf.d/mailserver.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart httpd

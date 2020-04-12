@@ -1,0 +1,13 @@
+$TTL 86400
+@ IN SOA ns1.shrilab.com. nsadmin.shrilab.com. (
+	2020040601 	; serial
+	28800 		; refresh
+	14400 		; retry
+	3600000 	; expire
+	86400 		; default_ttl
+)
+
+@	IN 	NS 	ns1.shrilab.com.
+ns1	IN	NS	192.168.0.100
+1 	IN 	PTR 	master.shrilab.com.
+100	IN	PTR	control.shrilab.com.

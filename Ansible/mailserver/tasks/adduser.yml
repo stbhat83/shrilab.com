@@ -1,0 +1,42 @@
+---
+  - name: Add "mailuser group"
+    become: yes
+    become_user: root
+    group:
+      name: mailuser
+      gid: 10000
+      state: present
+
+  - name: Add nsadmin mail user
+    become: yes
+    become_user: root
+    user:
+      name: nsadmin
+      comment: DNS ADMIN
+      group: mailuser
+      shell: /bin/nologin
+      uid: 10001
+      state: present
+
+  - name: Add webadmin
+    become: yes
+    become_user: root
+    user:
+      name: webadmin
+      comment: DNS ADMIN
+      group: mailuser
+      shell: /bin/nologin
+      uid: 10002
+      state: present
+
+  - name: Add noc mail user
+    become: yes
+    become_user: root
+    user:
+      name: noc
+      comment: DNS ADMIN
+      group: mailuser
+      shell: /bin/nologin
+      uid: 10003
+      state: present
+

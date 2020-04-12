@@ -1,0 +1,49 @@
+---
+  - name: Install "createrepo" package
+    become: yes
+    become_user: root
+    yum:
+      name: createrepo
+      state: present
+
+  - name: Copy HTTD configuration
+    become: yes
+    become_user: root
+    copy:
+      src: files/etc/httpd/conf.d/yumrepo.conf
+      dest: /etc/httpd/conf.d/yumrepo.conf
+      mode: 0644
+      owner: root
+      group: root
+    notify: 
+      - restart httpd
+
+  - name: Create DoccumetRoot directory
+    become: yes
+    become_user: root
+    file:
+      name: /var/www/html/repo
+      state: directory
+      mode: 0755
+      owner: root
+      group: root
+
+  - name: Create Package directory
+    become: yes
+    become_user: root
+    file:
+      name: /var/www/html/repo/rpm/
+      state: directory
+      mode: 0755
+      owner: root
+      group: root
+
+  - name: Copy Index file
+    become: yes
+    become_user: root
+    copy: src=files/var/www/html/repo/index.html dest=/var/www/html/repo/index.html owner=root group=root mode=0644
+
+#  - name: generate repomd.xml file
+#    become: yes
+#    become_user: root
+#    command: createrepo /var/www/html/repo/rpm/

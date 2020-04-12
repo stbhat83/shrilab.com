@@ -1,0 +1,6 @@
+---
+  - name: Install HTTPD
+    import_tasks: httpd.yml
+
+  - name: Copy HTTPD config for ops.shrilab.com
+    import_tasks: ops.yml

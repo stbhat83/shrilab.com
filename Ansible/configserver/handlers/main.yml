@@ -1,0 +1,7 @@
+---
+  - name: restart httpd
+    become: yes
+    become_user: root
+    service:
+      name: httpd
+      state: restarted

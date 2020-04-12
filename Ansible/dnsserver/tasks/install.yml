@@ -1,0 +1,16 @@
+---
+  - name: Install and BIND service
+    become: yes
+    become_user: root
+    yum:
+      name:
+        - bind
+        - bind-utils
+      state: present
+
+  - name: Enable BIND service
+    become: yes
+    become_user: root
+    service:
+      name: named
+      enabled: yes

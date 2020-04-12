@@ -1,0 +1,12 @@
+---
+  - name: Deploy Postfix Configuration
+    become: yes
+    become_user: root
+    copy:
+      src: files/etc/postfix/main.cf
+      dest: /etc/postfix/main.cf
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart postfix

@@ -1,0 +1,23 @@
+---
+  - name: restart postfix
+    become: yes
+    become_user: root
+    service:
+      name: postfix
+      state: restarted
+
+  - name: restart dovecot
+    become: yes
+    become_user: root
+    service:
+      name: dovecot
+      state: restarted
+
+  - name: restart httpd
+    become: yes
+    become_user: root
+    service:
+      name: httpd
+      state: restarted
+
+

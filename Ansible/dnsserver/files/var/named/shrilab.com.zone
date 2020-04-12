@@ -1,0 +1,24 @@
+$TTL 86400
+@   IN  SOA     ns1.shrilab.com. nsadmin.shrilab.com. (
+        2020041104  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+; Specify our two nameservers
+		IN	NS		ns1.shrilab.com.
+; Resolve nameserver hostnames to IP, replace with your two droplet IP addresses.
+ns1		IN	A		192.168.0.1
+
+; Define hostname -> IP pairs which you wish to resolve
+@		IN	A		192.168.0.1
+master		IN	A		192.168.0.1
+config		IN	A		192.168.0.1
+yumrepo		IN	A		192.168.0.1
+ansible		IN	CNAME		master.shrilab.com.
+mail		IN	A		192.168.0.1
+smtp		IN	A		192.168.0.1
+pop3		IN	A		192.168.0.1
+@		IN	MX	10	192.168.0.1
+ops		IN	A		192.168.0.1

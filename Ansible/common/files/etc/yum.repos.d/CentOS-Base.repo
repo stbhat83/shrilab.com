@@ -1,0 +1,5 @@
+[Local]
+name=CentOS Local Repo
+baseurl=http://192.168.0.100:8080/rpm
+enabled=1
+gpgcheck=0

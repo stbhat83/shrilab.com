@@ -1,0 +1,9 @@
+---
+  - name: Add users/groups and SSH key
+    import_tasks: users.yml
+
+  - name: Add suoders file
+    import_tasks: sudo.yml
+
+  - name: Confgure SSHD
+    import_tasks: sshd.yml

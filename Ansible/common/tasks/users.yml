@@ -1,0 +1,31 @@
+---
+  - name: Create "opsadm" group
+    group:
+      name: opsadm
+      gid: 2001
+      state: present
+  
+  - name: Create "opsadm" user
+    user:
+      name: opsadm
+      comment: "Operations Team"
+      uid: 2001
+      group: opsadm
+      shell: /bin/bash
+      state: present 
+
+  - name: Create directory for SSH keys
+    file: 
+      path: /home/opsadm/.ssh
+      state: directory
+      owner: opsadm
+      group: opsadm
+      mode: 0700
+
+  - name: Copy SSH key from master server
+    copy: 
+      src: home/opsadm/.ssh/authorized_keys 
+      dest: /home/opsadm/.ssh/authorized_keys
+      owner: opsadm
+      group: opsadm
+      mode: 0644  
